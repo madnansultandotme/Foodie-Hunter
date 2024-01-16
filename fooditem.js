@@ -330,7 +330,7 @@ const foodItem = [
     category: "south-pakistan",
     rating: 4.3,
     price: 18,
-    img: "images/south indian/Butter-Masala-Dosa.png",
+    img: "images/south-pakistan/Butter-Masala-Dosa.png",
     quantity: 1,
   },
   {
@@ -339,7 +339,7 @@ const foodItem = [
     category: "south-pakistan",
     rating: 4.3,
     price: 20,
-    img: "images/south indian/idli-with-rice-flour.jpg",
+    img: "images/south-pakistan/idli-with-rice-flour.jpg",
     quantity: 1,
   },
   {
@@ -348,7 +348,7 @@ const foodItem = [
     category: "south-pakistan",
     rating: 4.3,
     price: 12,
-    img: "images/south indian/masala-dosa.jpg",
+    img: "images/south-pakistan/masala-dosa.jpg",
     quantity: 1,
   },
   {
@@ -357,7 +357,7 @@ const foodItem = [
     category: "south-pakistan",
     rating: 4.3,
     price: 10,
-    img: "images/south indian/mysore-bonda.jpg",
+    img: "images/south-pakistan/mysore-bonda.jpg",
     quantity: 1,
   },
   {
@@ -366,7 +366,7 @@ const foodItem = [
     category: "south-pakistan",
     rating: 4.3,
     price: 15,
-    img: "images/south-indian/onion-uttapam.jpg",
+    img: "images/south-pakistan/onion-uttapam.jpg",
     quantity: 1,
   },
   {
@@ -375,7 +375,7 @@ const foodItem = [
     category: "south-pakistan",
     rating: 4.3,
     price: 40,
-    img: "images/south indian/plain-dosa.jpeg",
+    img: "images/south-pakistan/plain-dosa.jpeg",
     quantity: 1,
   },
   {
@@ -384,7 +384,7 @@ const foodItem = [
     category: "south-pakistan",
     rating: 4.3,
     price: 25,
-    img: "images/south indian/Rava-Uttapam.jpg",
+    img: "images/south-pakistan/Rava-Uttapam.jpg",
     quantity: 1,
   },
   {
@@ -393,7 +393,7 @@ const foodItem = [
     category: "south-pakistan",
     rating: 4.3,
     price: 34,
-    img: "images/south indian/sambhar-vada.jpg",
+    img: "images/south-pakistan/sambhar-vada.jpg",
     quantity: 1,
   },
 ];
