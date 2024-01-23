@@ -283,3 +283,5 @@ function displayItems() {
   })
 }
 displayItems();
+const categoryListData=[...new Map(foodItem.map(item=>[item['category'],item])).values];
+console.log(categoryListData);
