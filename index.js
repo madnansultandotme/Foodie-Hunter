@@ -283,5 +283,36 @@ function displayItems() {
   })
 }
 displayItems();
-const categoryListData=[...new Map(foodItem.map(item=>[item['category'],item])).values];
+
+
+const categoryListData=[...new Map(foodItem.map(item=>[item['category'],item])).values()];
 console.log(categoryListData);
+
+function categoryLists() {
+  var categoryList=document.getElementById("category-list");
+   categoryListData.map(item=>{
+    var listCard=document.createElement('div');
+listCard.setAttribute('class','list-Card');
+listCard.style.paddingBottom='30px';
+var listimg=document.createElement('img');
+listimg.style.width = '50px';
+listimg.style.height = '50px';
+listimg.style.borderRadius='50%';
+// listimg.style.display='inline';
+listimg.classList.add('img');
+// listimg.setAttribute('class','list-card')
+listimg.src=item.img;
+var listname=document.createElement('a');
+listname.setAttribute('class','list-name');
+// listname.style.paddingBottom='300px';
+
+listname.innerText=item.category;
+listname.setAttribute('href','#'+item.category);
+listCard.appendChild(listimg);
+listCard.appendChild(listname);
+
+var cloneListCard=listCard.cloneNode(true);
+categoryList.appendChild(listCard);
+})
+}
+categoryLists();
