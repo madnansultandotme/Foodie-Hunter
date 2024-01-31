@@ -145,7 +145,7 @@ body {
   cursor: pointer;
   border-radius: 50%;
 }
-.toggle-heart {
+#toggle-heart {
   background: orangered;
   color: white;
 }
