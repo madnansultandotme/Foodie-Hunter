@@ -404,7 +404,7 @@ function incrementItem() {
   let itemToInc = this.parentNode.previousSibling.innerText;
   console.log(itemToInc);
 
-  var incObj = cartData.find((Element) => (Element.name == itemToInc));
+  var incObj = cartData.find((Element) => Element.name == itemToInc);
   incObj.quantity += 1;
   currPrice =
     (incObj.price * incObj.quantity - incObj.price * (incObj.quantity - 1)) /
@@ -421,12 +421,11 @@ function decrementItem() {
   let ind = cartData.indexOf(decObj);
   if (decObj.quantity > 1) {
     currPrice =
-      (decObj.price * decObj.quantity -
-        decObj.price * (decObj.quantity - 1)) /
+      (decObj.price * decObj.quantity - decObj.price * (decObj.quantity - 1)) /
       decObj.quantity;
-      
-      decObj.quantity-=1;
-      decObj.price=currPrice*decObj.quantity;
+
+    decObj.quantity -= 1;
+    decObj.price = currPrice * decObj.quantity;
   } else {
     document.getElementById(decObj.id).classList.remove("toggle-heart");
     cartData.splice(ind, 1);
@@ -459,8 +458,8 @@ function totalAmount() {
   document.getElementById("total-price").innerText = "Total Price : $ " + sum;
 }
 
-   document.getElementById("cart-plus").addEventListener("click", cartToggle);
- //document.getElementById("m-cart-plus").addEventListener("click", cartToggle);
+document.getElementById("cart-plus").addEventListener("click", cartToggle);
+//document.getElementById("m-cart-plus").addEventListener("click", cartToggle);
 
 function cartToggle() {
   if (cartData.length > 0) {
@@ -470,9 +469,8 @@ function cartToggle() {
     document.getElementById("cart-page").classList.toggle("cart-toggle");
     // document.getElementById('category-header').classList.toggle('toggle-category')  ;
     document.getElementById("checkout").classList.toggle("cart-toggle");
-  flag=true;
-  }else{
+    flag = true;
+  } else {
     alert("currently no Items in cart");
   }
-
 }
