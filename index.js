@@ -474,3 +474,17 @@ function cartToggle() {
     alert("currently no Items in cart");
   }
 }
+
+document.getElementById("add-address").addEventListener("click", addAddress);
+//document.getElementById("m-add-address").addEventListener("click", addAddress);
+function addAddress() {
+  var address = prompt("Enter your Address");
+  if (address) {
+    document.getElementById("add-address").innerText = " " + address;
+  }
+  else {
+    document.getElementById("add-address").innerText = " Your Address ";
+
+    alert("Address not added");
+  }
+}
