@@ -1,5 +1,6 @@
 import { foodItem } from "./fooditem.js";
 console.log(foodItem);
+document.getElementById("food-item").classList.toggle("food-item");
 function displayItems() {
   var biryani = document.getElementById("biryani");
   var chicken = document.getElementById("chicken");
@@ -39,6 +40,7 @@ function displayItems() {
     // heart
     var heart = document.createElement("i");
     heart.setAttribute("class", "fa-regular fa-heart add-to-cart");
+    // console.log(heart);
     // heart.setAttribute("id", item.id);
     // heart.innerText = " " + item.rating;
 
@@ -324,19 +326,34 @@ document.querySelectorAll(".add-to-cart").forEach((item) => {
 
 var cartData = [];
 function addToCart() {
-  console.log(this.parentNode.nextSibling.nextSibling);
+  const parnetodebyme = this.parentNode;
+  console.log(parnetodebyme);
+  const secondChild = parnetodebyme.childNodes[1];
+  console.log(secondChild);
 
   var itemToAdd = this.parentNode.nextSibling.nextSibling.innerText;
-
+  console.log(itemToAdd);
   var itemObj = foodItem.find((Element) => Element.name == itemToAdd);
 
   console.log(itemObj);
 
   var index = cartData.indexOf(itemObj);
+  console.log(index, itemObj.id);
   if (index == -1) {
-    console.log("yed");
-    const obj = document.getElementById(itemObj.id).add("toggle-heart");
-    console.log(obj);
+    console.log("Item ID:", itemObj.id);
+    // const element =
+    // document.querySelector(".fa-heart");
+    // document.getElementById(itemObj.id);
+    // console.log("Element:", element);
+    // if (element) {
+    //   element.classList.add("toggle-heart");
+    // }
+    const obj = secondChild.classList.add("toggle-heart");
+    // console.log(obj);
+    // = document
+    //   .getElementById(itemObj.id)
+    //   .classList.add(".toggle-heart");
+    // console.log(obj);
     // ?.classList?.toggle('toggle-heart');
     cartData = [...cartData, itemObj];
     console.log(cartData);
@@ -373,8 +390,8 @@ function cartItems() {
     span.innerText = item.quantity;
 
     var btn2 = document.createElement("button");
-    btn1.setAttribute("class", "increase-item");
-    btn1.innerHTML = "+";
+    btn2.setAttribute("class", "increase-item");
+    btn2.innerHTML = "+";
 
     rowData3.appendChild(btn1);
     rowData3.appendChild(span);
@@ -402,8 +419,6 @@ var currPrice = 0;
 
 function incrementItem() {
   let itemToInc = this.parentNode.previousSibling.innerText;
-  console.log(itemToInc);
-
   var incObj = cartData.find((Element) => Element.name == itemToInc);
   incObj.quantity += 1;
   currPrice =
@@ -417,8 +432,15 @@ function incrementItem() {
 var flag = false;
 function decrementItem() {
   let itemToDec = this.parentNode.previousSibling.innerText;
+  // console.log("itemto  ", itemToDec);
   let decObj = cartData.find((Element) => Element.name == itemToDec);
   let ind = cartData.indexOf(decObj);
+  // console.log(decObj);
+  // console.log(ind);
+  // const parnetodeme = document.querySelector(".fa-heart");
+  // console.log(parnetodeme);
+  // const secondChildme = parnetodeme.childNodes[1];
+  // console.log(secondChildme);
   if (decObj.quantity > 1) {
     currPrice =
       (decObj.price * decObj.quantity - decObj.price * (decObj.quantity - 1)) /
@@ -428,9 +450,13 @@ function decrementItem() {
     decObj.price = currPrice * decObj.quantity;
   } else {
     document.getElementById(decObj.id).classList.remove("toggle-heart");
+    // console.log(decObj.id);
+    // const parnetodeme = document.querySelector(".fa-heart");
+    // console.log(parnetodeme);
+    // parnetodeme.classList.toggle("toggle-heart");
     cartData.splice(ind, 1);
     document.getElementById("cart-plus").innerText =
-      " " + cartData.length + " Itema";
+      " " + cartData.length + " Items";
     // document.getElementById("cart-plus").innerText=' '+ cartData.length;
 
     if (cartData.length < 1 && flag) {
@@ -440,7 +466,7 @@ function decrementItem() {
       document.getElementById("cart-page").classList.toggle("cart-toggle");
       // document.getElementById('category-header').classList.toggle('toggle-category')  ;
       document.getElementById("checkout").classList.toggle("cart-toggle");
-      flag = flase;
+      flag = false;
       alert("currently no item in cart");
     }
   }
@@ -458,9 +484,6 @@ function totalAmount() {
   document.getElementById("total-price").innerText = "Total Price : $ " + sum;
 }
 
-document.getElementById("cart-plus").addEventListener("click", cartToggle);
-//document.getElementById("m-cart-plus").addEventListener("click", cartToggle);
-
 function cartToggle() {
   if (cartData.length > 0) {
     document.getElementById("food-item").classList.toggle("food-item");
@@ -474,6 +497,8 @@ function cartToggle() {
     alert("currently no Items in cart");
   }
 }
+document.getElementById("cart-plus").addEventListener("click", cartToggle);
+//document.getElementById("m-cart-plus").addEventListener("click", cartToggle);
 
 document.getElementById("add-address").addEventListener("click", addAddress);
 //document.getElementById("m-add-address").addEventListener("click", addAddress);
@@ -481,8 +506,7 @@ function addAddress() {
   var address = prompt("Enter your Address");
   if (address) {
     document.getElementById("add-address").innerText = " " + address;
-  }
-  else {
+  } else {
     document.getElementById("add-address").innerText = " Your Address ";
 
     alert("Address not added");

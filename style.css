@@ -88,7 +88,7 @@ body {
   background: rgba(220, 20, 60, 0.731);
 }
 .food-item {
-  /* display: none; */
+  display: none;
 }
 #south-pakistan,
 #vegetable,
@@ -148,6 +148,14 @@ body {
 }
 #toggle-heart {
   background: orangered;
+  color: white;
+}
+.toggle-heart {
+  background: orangered;
+  color: white;
+}
+.remove-back {
+  background: white;
   color: white;
 }
 #item-name {
