@@ -16,7 +16,7 @@ function displayItems() {
   const paneerData = foodItem.filter((item) => item.category == "paneer");
   console.log(paneerData);
   const VegetableData = foodItem.filter((item) => item.category == "vegetable");
- 
+
   console.log(VegetableData);
   const chineseData = foodItem.filter((item) => item.category == "chinese");
   console.log(chineseData);
@@ -419,7 +419,6 @@ function cartItems() {
 }
 var currPrice = 0;
 
-
 function incrementItem() {
   let itemToInc = this.parentNode.previousSibling.innerText;
   console.log(itemToInc);
@@ -511,8 +510,6 @@ function cartToggle() {
     alert("Currently no item in cart!");
   }
 }
-
-
 
 window.onresize = window.onload = function () {
   var size = window.screen.width;
