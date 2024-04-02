@@ -5,7 +5,7 @@ function displayItems() {
   var biryani = document.getElementById("biryani");
   var chicken = document.getElementById("chicken");
   var paneer = document.getElementById("paneer");
-  var Vegetable = document.getElementById("Vegetable");
+  var Vegetable = document.getElementById("vegetable");
   var chinese = document.getElementById("chinese");
   var south_pakistan = document.getElementById("south-pakistan");
 
@@ -15,7 +15,8 @@ function displayItems() {
   console.log(chickenData);
   const paneerData = foodItem.filter((item) => item.category == "paneer");
   console.log(paneerData);
-  const VegetableData = foodItem.filter((item) => item.category == "Vegetable");
+  const VegetableData = foodItem.filter((item) => item.category == "vegetable");
+ 
   console.log(VegetableData);
   const chineseData = foodItem.filter((item) => item.category == "chinese");
   console.log(chineseData);
@@ -256,7 +257,7 @@ function displayItems() {
     star.innerText = " " + item.rating;
     // heart
     var heart = document.createElement("i");
-    heart.setAttribute("class", "fa-regular fa-heart");
+    heart.setAttribute("class", "fa-regular fa-heart add-to-cart");
     // heart.setAttribute("id", item.id);
     // heart.innerText = " " + item.rating;
 
@@ -418,17 +419,7 @@ function cartItems() {
 }
 var currPrice = 0;
 
-// function incrementItem() {
-//   let itemToInc = this.parentNode.previousSibling.innerText;
-//   var incObj = cartData.find((Element) => Element.name == itemToInc);
-//   incObj.quantity += 1;
-//   currPrice =
-//     (incObj.price * incObj.quantity - incObj.price * (incObj.quantity - 1)) /
-//     (incObj.quantity - 1);
-//   incObj.price = currPrice * incObj.quantity;
-//   totalAmount();
-//   cartItems();
-// }
+
 function incrementItem() {
   let itemToInc = this.parentNode.previousSibling.innerText;
   console.log(itemToInc);
@@ -443,99 +434,34 @@ function incrementItem() {
   cartItems();
 }
 var flag = false;
-//function decrementItem() {
-//   let itemToDec = this.parentNode.previousSibling.innerText;
-
-//   console.log("itemto  ", itemToDec);
-//   let decObj = cartData.find((Element) => Element.name == itemToDec);
-//   let ind = cartData.indexOf(decObj);
-//   console.log(decObj);
-
-//   console.log(close);
-//   // console.log(ind);
-//   // const parnetodeme = document.querySelector(".fa-heart");
-//   // console.log(parnetodeme);
-//   // const secondChildme = parnetodeme.childNodes[1];
-//   // console.log(secondChildme);
-//   if (decObj.quantity > 1) {
-//     currPrice =
-//       (decObj.price * decObj.quantity - decObj.price * (decObj.quantity - 1)) /
-//       decObj.quantity;
-
-//     decObj.quantity -= 1;
-//     decObj.price = currPrice * decObj.quantity;
-//   } else {
-//     document.getElementById(decObj).classList.remove("toggle-heart");
-//     // console.log(decObj.id);
-//     // const parnetodeme = document.querySelector(".fa-heart");
-//     // console.log(parnetodeme);
-//     // parnetodeme.classList.toggle("toggle-heart");
-//     cartData.splice(ind, 1);
-//     document.getElementById("cart-plus").innerText =
-//       " " + cartData.length + " Items";
-//     // document.getElementById("cart-plus").innerText=' '+ cartData.length;
-
-//     if (cartData.length < 1 && flag) {
-//       document.getElementById("food-item").classList.toggle("food-item");
-//       document.getElementById("category-list").classList.toggle("food-item");
-//       //  document.getElementById('m-cart-plus').classList.toggle('m-cart-toggle') ;
-//       document.getElementById("cart-page").classList.toggle("cart-toggle");
-//       // document.getElementById('category-header').classList.toggle('toggle-category')  ;
-//       document.getElementById("checkout").classList.toggle("cart-toggle");
-//       flag = false;
-//       alert("currently no item in cart");
-//     }
-//   }
-//   totalAmount();
-//   cartItems();
-// }
 currPrice = 0;
 function decrementItem() {
   console.log("--------------------------");
   let itemToInc = this.parentNode.previousSibling.innerText;
-  console.log("Name", itemToInc);
+
   let decObj = cartData.find((element) => element.name == itemToInc);
-  console.log(document.querySelectorAll(".card-top"));
+
   let ind = cartData.indexOf(decObj);
-  console.log("ind", ind);
+
   if (decObj.quantity > 1) {
     currPrice =
-      (decObj.price * decObj.quantity - decObj.price * (decObj.quantity - 1)) /
-      decObj.quantity;
+      decObj.price * decObj.quantity - decObj.price * (decObj.quantity - 1);
+    decObj.quantity;
     decObj.quantity -= 1;
     decObj.price = currPrice * decObj.quantity;
   } else {
-    const heartElements = document.querySelectorAll(".fa-heart");
-    for (const heartElement of heartElements) {
-      if (decObj.name === itemToInc) {
+    const heartElements = document.querySelectorAll(".item-card");
+
+    for (let i = 0; i < heartElements.length; i++) {
+      const itemNameElement = heartElements[i].querySelector("#item-name");
+
+      if (decObj.name === itemNameElement.textContent) {
+        const heartElement =
+          itemNameElement.previousElementSibling.previousElementSibling
+            .childNodes[1];
         heartElement.classList.remove("toggle-heart");
-      } else {
-        console.log("cat");
       }
     }
-
-    // //console.log(heartDel.target.cloeset(".card-top"));
-    // // const finddel=heartDel.find(item =>item.id===decObj.id)
-    // // console.log(finddel);
-    // console.log(heartDel);
-    // document
-    //   //.querySelectorAll(".heart-del")
-    //   .getElementById(decObj.id)
-    //   ?.classList.remove("toggle-heart");
-    // console.log(decObj.heart.values);
-    // // const attri = document.getAttribute(decObj.);
-    // //  console.log(attri);
-    // cartData.splice(ind, 1);
-    // document.getElementById("cart-plus").innerText =
-    //   " " + cartData.length + " Items";
-    // const heartDel = this.parentNode.parentNode.querySelector(".fa-heart");
-    // console.log(heartDel);
-    // console.log(this.parentNode.parentNode);
-
-    // document
-    //   .getElementById("heart-del")
-    //   .find(decObj.id)
-    //   .classList.toggle("toggle-heart");
     cartData.splice(ind, 1);
     document.getElementById("cart-plus").innerText =
       " " + cartData.length + " Items";
@@ -586,18 +512,7 @@ function cartToggle() {
   }
 }
 
-// document.getElementById("add-address").addEventListener("click", addAddress);
-// //document.getElementById("m-add-address").addEventListener("click", addAddress);
-// function addAddress() {
-//   var address = prompt("Enter your Address");
-//   if (address) {
-//     document.getElementById("add-address").innerText = " " + address;
-//   } else {
-//     document.getElementById("add-address").innerText = " Your Address ";
 
-//     alert("Address not added");
-//   }
-// }
 
 window.onresize = window.onload = function () {
   var size = window.screen.width;
