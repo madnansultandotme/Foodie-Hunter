@@ -104,7 +104,7 @@ function displayItems() {
     //price
     var Item_price = document.createElement("p");
     Item_price.setAttribute("id", "item-price");
-    Item_price.innerText = "Price : $" + item.price;
+    Item_price.innerText = "Price : Rs." + item.price;
 
     itemcard.appendChild(cardTop);
     itemcard.appendChild(img);
@@ -147,7 +147,7 @@ function displayItems() {
     //price
     var Item_price = document.createElement("p");
     Item_price.setAttribute("id", "item-price");
-    Item_price.innerText = "Price : $" + item.price;
+    Item_price.innerText = "Price : Rs." + item.price;
 
     itemcard.appendChild(cardTop);
     itemcard.appendChild(img);
@@ -190,7 +190,7 @@ function displayItems() {
     //price
     var Item_price = document.createElement("p");
     Item_price.setAttribute("id", "item-price");
-    Item_price.innerText = "Price : $" + item.price;
+    Item_price.innerText = "Price : Rs." + item.price;
 
     itemcard.appendChild(cardTop);
     itemcard.appendChild(img);
@@ -233,7 +233,7 @@ function displayItems() {
     //price
     var Item_price = document.createElement("p");
     Item_price.setAttribute("id", "item-price");
-    Item_price.innerText = "Price : $" + item.price;
+    Item_price.innerText = "Price : Rs." + item.price;
 
     itemcard.appendChild(cardTop);
     itemcard.appendChild(img);
@@ -276,7 +276,7 @@ function displayItems() {
     //price
     var Item_price = document.createElement("p");
     Item_price.setAttribute("id", "item-price");
-    Item_price.innerText = "Price : $" + item.price;
+    Item_price.innerText = "Price : Rs." + item.price;
 
     itemcard.appendChild(cardTop);
     itemcard.appendChild(img);
